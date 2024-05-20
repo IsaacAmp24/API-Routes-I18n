@@ -1,27 +1,100 @@
-# APIRoutesI18n
+# Nursing
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+## Pasos para desarrollar el proyecto
 
-## Development server
+1. Instalar AngularMaterial
+```bash
+ng add @angular/material
+```
+2. Añadir internazionalización
+```bash
+npm install @ngx-translate/core @ngx-translate/http-loader
+```
+3. Crear una carpeta "i18n" y crear los archivos "en.json" y "es.json"
+* src
+  * assets
+    * i18n
+      * en.json
+      * es.json
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+4. Ir al archivo "app.module.ts" y añadir el siguiente código
+```typescript
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-## Code scaffolding
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+5. Despues, en la seccion de imports añadir el siguiente código
+```typescript
+imports: [
+  HttpClientModule,
+  // para cambiar el idioma
+  TranslateModule.forRoot({
+    defaultLanguage: 'en',
+    loader: {
+      provide: TranslateLoader,
+      useFactory: createTranslateLoader,
+      deps: [HttpClient]
+    }
+  }),
+  // otras importaciones
+]
+```
 
-## Build
+6. Creamos un componente para el switch de idiomas
+```bash
+ng generate c public/components/language-switch
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+7. en el archivo "language-switch.component.ts" añadir el siguiente código
+```typescript
+import { Component } from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
-## Running unit tests
+@Component({
+  selector: 'app-switch-language',
+  templateUrl: './switch-language.component.html',
+  styleUrl: './switch-language.component.css'
+})
+export class SwitchLanguageComponent {
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  constructor(private translateService: TranslateService) { }
 
-## Running end-to-end tests
+  changeLanguage(language: string) {
+    this.translateService.use(language);
+  }
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  protected readonly toolbar = toolbar;
+}
+```
 
-## Further help
+8. En el archivo app.component.html añadir el siguiente código al final para las rutas
+```html
+<router-outlet></router-outlet>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+9. Crear la carpeta server en la carpeta raiz del proyecto y colocar el json que tendran los datos
+- MiProyecto
+  - .angular
+  - .vscode
+  - node_modules
+  - server
+    -  db.json
+  - src
+
+10. Luego, para ejecutar en localhost el servidor json, realizar el siguiente comando
+```bash
+cd server
+json-server --watch db.json
+```
+
+- Con esto te mostraria la url donde se encuentra el servidor, por lo general es http://localhost:3000
+
+
+```
+Felicitaciones, haz aprendido a importar internazionalización en tu proyecto de Angular
+```
