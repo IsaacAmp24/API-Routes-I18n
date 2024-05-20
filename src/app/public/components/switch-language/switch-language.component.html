@@ -1,0 +1,8 @@
+<button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="languageMenu">
+  <mat-icon>language</mat-icon>
+</button>
+
+<mat-menu #languageMenu='matMenu'>
+  <button mat-menu-item (click)="changeLanguage('en')">{{ 'toolbar.languagePrimary' | translate }}</button>
+  <button mat-menu-item (click)="changeLanguage('es')">{{ 'toolbar.languageSecondary' | translate}}</button>
+</mat-menu>

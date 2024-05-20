@@ -1,0 +1,42 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+mat-card {
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+mat-card-header {
+  background-color: #856ddc;
+  color: white;
+  padding: 10px 16px;
+}
+
+mat-card-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+mat-card-content {
+  padding: 16px;
+  background: #fff;
+  color: #333;
+}
+
+img [mat-card-image] {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+mat-card-content p {
+  margin: 4px 0;
+  font-size: 14px;
+}

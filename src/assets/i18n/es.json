@@ -1,0 +1,22 @@
+{
+  "toolbar": {
+    "buttonLanguage": "Idioma",
+    "languagePrimary": "Ingles",
+    "languageSecondary": "Español",
+    "home": "Inicio",
+    "mentalStateExams": "Examenes de Estado Mental"
+  },
+
+  "homeSection": {
+    "description": "HIGN promueve la atención médica equitativa para los adultos mayores al educar a la fuerza laboral y a los futuros profesionales, informar las políticas, promover la investigación y brindar programas comunitarios."
+  },
+
+  "pageNotFound": {
+    "title": "Pagina no encontrada",
+    "description": "Lo sentimos, la pagina que esta buscando no se pudo encontrar",
+    "path": "La ruta ",
+    "invalidPath": " no es valida",
+    "backHome": "Inicio"
+
+  }
+}

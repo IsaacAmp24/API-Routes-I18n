@@ -1,0 +1,8 @@
+<mat-toolbar>
+  <img src="https://hign.org/sites/default/files/2022-01/HIGN-logo-1200.png">
+  <div class="mat-spencer"></div>
+    <a mat-button *ngFor="let option of options"
+      [routerLink]="option.path">{{option.title | translate}}
+    </a>
+  <app-switch-language></app-switch-language>
+</mat-toolbar>

@@ -1,0 +1,16 @@
+.hero-content {
+  text-align: center;
+  padding: 0 20%;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: #333;
+  max-width: 30rem;
+  margin: 1.5rem auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

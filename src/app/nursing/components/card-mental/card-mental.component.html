@@ -1,0 +1,15 @@
+<div class="card-container" *ngFor="let data of mentalStates">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{getPatientName(data)}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img src="{{getPhotoURL(data)}}">
+      <p>Born Date: {{getBornDate(data) | date: 'yyyy MMM dd'}}</p>
+      <p>Exam Date: {{getExamDate(data) | date: 'yyyy MMM dd'}}</p>
+      <p>Examiner Name: {{getExaminerName(data)}}</p>
+      <p>Examiner National: {{getExaminerNationalProviderIdentifier(data)}}</p>
+      <p>Total Score: {{data.attentionAndCalculationScore + data.languageScore + data.orientationScore + data.recallScore + data.registrationScore}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
