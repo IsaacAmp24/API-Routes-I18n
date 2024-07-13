@@ -11,11 +11,12 @@ ng add @angular/material
 npm install @ngx-translate/core @ngx-translate/http-loader
 ```
 3. Crear una carpeta "i18n" y crear los archivos "en.json" y "es.json"
-* src
-  * assets
-    * i18n
-      * en.json
-      * es.json
+
+src/
+├── assets/
+│   ├── i18n/
+│   │   ├── en.json
+│   │   └── es.json
 
 4. Ir al archivo "app.module.ts" y añadir el siguiente código
 ```typescript
